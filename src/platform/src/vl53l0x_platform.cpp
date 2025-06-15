@@ -275,7 +275,8 @@ VL53L0X_Error VL53L0X_PollingDelay(VL53L0X_DEV Dev) {
   volatile uint32_t i;
   LOG_FUNCTION_START("");
 
-  for (i = 0; i < VL53L0X_POLLINGDELAY_LOOPNB; i++) {
+  for (i = 0; i < VL53L0X_POLLINGDELAY_LOOPNB;) {
+    i = i + 1;
     // Do nothing
     asm("nop");
   }
